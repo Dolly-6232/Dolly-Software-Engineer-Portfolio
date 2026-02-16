@@ -99,7 +99,7 @@ export default function Contact() {
                     type="text"
                     name="name"
                     placeholder="Name"
-                    className={`px-4 py-2 rounded-md ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'
+                    className={`px-4 py-2 rounded-md ${theme === 'dark' ? 'bg-gray-800 text-white placeholder-gray-400' : 'bg-gray-100 text-black placeholder-gray-600'
                       }`}
                     required
                   />
@@ -107,14 +107,14 @@ export default function Contact() {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className={`px-4 py-2 rounded-md ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'
+                    className={`px-4 py-2 rounded-md ${theme === 'dark' ? 'bg-gray-800 text-white placeholder-gray-400' : 'bg-gray-100 text-black placeholder-gray-600'
                       }`}
                     required
                   />
                   <textarea
                     name="message"
                     placeholder="Message"
-                    className={`px-4 py-2 rounded-md h-32 resize-none ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'
+                    className={`px-4 py-2 rounded-md h-32 resize-none ${theme === 'dark' ? 'bg-gray-800 text-white placeholder-gray-400' : 'bg-gray-100 text-black placeholder-gray-600'
                       }`}
                     required
                   />
