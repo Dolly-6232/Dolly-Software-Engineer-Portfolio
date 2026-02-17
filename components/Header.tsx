@@ -238,7 +238,7 @@ export default function Header() {
                         </Link>
                         <Link
                             href="/hireme"
-                            className={`text-lg transition-colors hover:text-orange-500 block py-2 ${activeNav === 'contact' ? 'text-orange-500' : ''
+                            className={`text-lg transition-colors hover:text-orange-500 block py-2 ${activeNav === 'hireme' ? 'text-orange-500' : ''
                                 }`}
                             onClick={closeMenu}
                         >
