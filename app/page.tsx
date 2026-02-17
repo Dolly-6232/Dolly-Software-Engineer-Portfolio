@@ -27,7 +27,7 @@ const DownloadCVButton = () => {
 
   return (
     <button
-      onClick={() => window.open('/files/resume.pdf.pdf', '_blank')}
+      onClick={() => window.open('/files/resume.pdf', '_blank')}
       className="px-8 flex items-center gap-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
     >
       <Download />
