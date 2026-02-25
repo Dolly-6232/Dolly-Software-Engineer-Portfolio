@@ -66,7 +66,7 @@ export default function Contact() {
   };
 
   return (
-    <div className={`min-h-screen relative transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
+    <div className={` relative transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
       }`}>
       <motion.div
         initial={{ opacity: 0 }}
@@ -77,7 +77,7 @@ export default function Contact() {
         <Header />
         <h1 className="text-lg md:text-3xl lg:text-4xl font-bold text-center">Get In Touch</h1>
 
-        <main className="flex min-h-screen w-full max-w-7xl mx-auto py-10 px-6 md:px-16 flex-col md:flex-row gap-10">
+        <main className="flex w-full max-w-7xl mx-auto py-10 px-6 md:px-16 flex-col md:flex-row gap-10">
 
           <motion.div
             initial={{ opacity: 0, x: -50 }}

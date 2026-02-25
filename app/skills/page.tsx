@@ -8,12 +8,12 @@ export default function Skills() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen relative transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
+    <div className={` relative transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
       }`}>
       <div className="relative z-10">
         <Header />
 
-        <main className="flex min-h-screen w-full max-w-7xl mx-auto py-10 px-6  md:px-16">
+        <main className="flex w-full max-w-7xl mx-auto py-10 px-6  md:px-16">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}

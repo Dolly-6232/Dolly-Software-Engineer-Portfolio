@@ -79,11 +79,11 @@ export default function Home() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
+    <div className={` transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
       }`}>
       <Header />
 
-      <main className="flex flex-col md:flex-row min-h-screen w-full max-w-7xl mx-auto flex-cole md:flex-row py-10 px-6 md:px-16">
+      <main className="flex flex-col md:flex-row  w-full max-w-7xl mx-auto flex-cole md:flex-row py-10 px-6 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

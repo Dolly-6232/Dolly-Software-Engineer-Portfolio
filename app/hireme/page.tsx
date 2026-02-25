@@ -21,12 +21,12 @@ export default function Hire() {
     }, 500);
   };
   return (
-    <div className={`min-h-screen relative transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
+    <div className={` relative transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
       }`}>
       <div className="relative z-10">
         <Header />
 
-        <main className="flex flex-col min-h-screen w-full max-w-7xl mx-auto py-10 px-6 md:px-16 items-center gap-4">
+        <main className="flex flex-col w-full max-w-7xl mx-auto py-10 px-6 md:px-16 items-center gap-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
