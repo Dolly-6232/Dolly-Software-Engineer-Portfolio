@@ -98,6 +98,8 @@ export default function Home() {
           >
             <a href="https://www.instagram.com/shivangi_s015/?hl=en" target="_blank" rel="noopener noreferrer"><Image src="/instagram.svg" alt="Instagram" width={64} height={64} className="rounded-lg" /></a>
             <a href="https://github.com/Dolly-6232/" target="_blank" rel="noopener noreferrer"><Image src="/github.svg" alt="GitHub" width={64} height={64} className="rounded-lg bg-white" /></a>
+            <a href="http://linkedin.com/in/dolly-taide-9491082b4" target="_blank" rel="noopener noreferrer"><Image src="/linkdin.svg" alt="GitHub" width={64} height={64} className="rounded-lg bg-white" /></a>
+
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
