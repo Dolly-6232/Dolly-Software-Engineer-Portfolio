@@ -33,10 +33,10 @@ export default function Skills() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-full max-w-4xl"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-full max-w-4xl"
             >
               {/* Mobile Development */}
-              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
+              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 w-full sm:w-80 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
                 }`}>
                 <div className="flex items-center mb-4">
                   <span className="text-2xl md:mr-3">📱</span>
@@ -64,7 +64,7 @@ export default function Skills() {
               </motion.div>
 
               {/* Frontend Development */}
-              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
+              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 w-full sm:w-80 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
                 }`}>
                 <div className="flex items-center mb-4">
                   <span className="text-2xl md:mr-3">🌐</span>
@@ -96,7 +96,7 @@ export default function Skills() {
               </motion.div>
 
               {/* Backend & Database */}
-              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
+              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 w-full sm:w-80 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
                 }`}>
                 <div className="flex items-center mb-4">
                   <span className="text-2xl md:mr-3">🔥</span>
@@ -132,7 +132,7 @@ export default function Skills() {
               </motion.div>
 
               {/* State Management */}
-              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
+              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 w-full sm:w-80 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
                 }`}>
                 <div className="flex items-center mb-4">
                   <span className="text-2xl md:mr-3">🧠</span>
@@ -156,7 +156,7 @@ export default function Skills() {
               </motion.div>
 
               {/* Tools & Platforms */}
-              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
+              <motion.div className={`p-6 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-orange-500/20 w-full sm:w-80 ${theme === 'dark' ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-100 bg-opacity-50'
                 }`}>
                 <div className="flex items-center mb-4">
                   <span className="text-2xl md:mr-3">🛠</span>
@@ -171,6 +171,10 @@ export default function Skills() {
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
                     Android Studio
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                    Xcode
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
