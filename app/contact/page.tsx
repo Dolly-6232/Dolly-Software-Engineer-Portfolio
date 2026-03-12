@@ -138,7 +138,7 @@ export default function Contact() {
               <div className="flex flex-col gap-2">
                 <p>Or reach out to me at:</p>
                 <p>Email: dollytaide2002@gmail.com</p>
-                <p>Phone: +91 6232731740</p>
+                {/* <p>Phone: +91 6232731740</p> */}
                 <p>Address: Indore, Madhya Pradesh</p>
               </div>
             </div>
