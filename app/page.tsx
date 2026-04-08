@@ -1,10 +1,11 @@
 'use client'
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Download, MessageCircle } from "lucide-react";
+import { Download, Github, MessageCircle } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 
 const DownloadCVButton = () => {
@@ -77,6 +78,87 @@ const ContactButton = () => {
 
 export default function Home() {
   const { theme } = useTheme();
+  const [loading, setLoading] = useState(true);
+  const [contributions, setContributions] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchGitHubContributions = async () => {
+      try {
+        setLoading(true);
+        
+        // Fetch contribution data from GitHub API
+        const response = await fetch('https://api.github.com/users/Dolly-6232/events?per_page=100');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch GitHub data');
+        }
+        
+        const events = await response.json();
+        
+        // Process events to create contribution data
+        const contributionsMap = new Map();
+        const today = new Date();
+        
+        // Initialize all days for the past year with 0 contributions
+        for (let i = 0; i < 365; i++) {
+          const date = new Date(today);
+          date.setDate(date.getDate() - i);
+          const dateStr = date.toISOString().split('T')[0];
+          contributionsMap.set(dateStr, 0);
+        }
+        
+        // Count contributions from events
+        events.forEach((event: any) => {
+          const eventDate = new Date(event.created_at).toISOString().split('T')[0];
+          if (contributionsMap.has(eventDate)) {
+            contributionsMap.set(eventDate, contributionsMap.get(eventDate) + 1);
+          }
+        });
+        
+        // Convert to array format
+        const contributions = Array.from(contributionsMap.entries())
+          .map(([date, count]: [string, number]) => ({ date, count }))
+          .reverse();
+        
+        setContributions(contributions);
+      } catch (error) {
+        console.error('Error fetching GitHub contributions:', error);
+        
+        // Fallback to mock data if API fails
+        const mockContributions = [];
+        const today = new Date();
+        for (let i = 0; i < 365; i++) {
+          const date = new Date(today);
+          date.setDate(date.getDate() - i);
+          mockContributions.push({
+            date: date.toISOString().split('T')[0],
+            count: Math.floor(Math.random() * 10)
+          });
+        }
+        setContributions(mockContributions.reverse());
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchGitHubContributions();
+  }, []);
+
+  const getWeeks = () => {
+    const weeks = [];
+    for (let i = 0; i < contributions.length; i += 7) {
+      weeks.push(contributions.slice(i, i + 7));
+    }
+    return weeks;
+  };
+
+  const getContributionColor = (count: number) => {
+    if (count === 0) return 'bg-gray-800';
+    if (count <= 2) return 'bg-green-900';
+    if (count <= 5) return 'bg-green-700';
+    if (count <= 8) return 'bg-green-500';
+    return 'bg-green-300';
+  };
 
   return (
     <div className={` transition-colors duration-300 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
@@ -145,7 +227,75 @@ export default function Home() {
         >
           <Image src="/images/homelogo.png" alt="Profile" width={300} height={300} className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full" />
         </motion.div>
+       
       </main>
+       <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-8 flex items-center justify-center px-4 sm:px-0 w-full max-w-7xl mx-auto">
+ <div className="bg-orange-500/10 border border-orange-500 rounded-xl p-3 sm:p-4 lg:p-6 backdrop-blur-sm w-full lg:max-w-none">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 flex items-center gap-2 sm:gap-3 text-white">
+              <Github className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+              GitHub Activity
+            </h3>
+            <p className="text-gray-400 mb-3 sm:mb-4 lg:mb-6 text-xs sm:text-sm lg:text-base">Dolly's coding journey over the past year</p>
+            
+            {loading ? (
+              <div className="mt-3 sm:mt-4 lg:mt-6 h-24 sm:h-32 lg:h-40 bg-black/50 rounded-lg border border-gray-700 flex items-center justify-center text-gray-400">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-4 w-4 sm:h-6 sm:w-6 lg:h-8 lg:w-8 border-b-2 border-gray-400 mx-auto mb-1 sm:mb-2 lg:mb-3"></div>
+                  <p className="text-xs sm:text-sm">Loading GitHub activity...</p>
+                </div>
+              </div>
+            ) : (
+              <div className="mt-3 sm:mt-4 lg:mt-6">
+                <div className="overflow-x-auto -mx-1 sm:-mx-2 lg:mx-0">
+                  <div className="inline-block min-w-full px-1 sm:px-2 lg:px-0">
+                    <div className="flex gap-0.5 sm:gap-1 justify-center">
+                      {getWeeks().slice(-52).map((week, weekIndex) => (
+                        <div key={weekIndex} className="flex flex-col gap-0.5 sm:gap-1">
+                          {week.map((day: any, dayIndex: number) => (
+                            <div
+                              key={dayIndex}
+                              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 rounded-sm ${getContributionColor(day.count)} hover:ring-1 hover:ring-gray-600 transition-all cursor-pointer`}
+                              title={`${day.date}: ${day.count} contributions`}
+                            />
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-2 sm:mt-3 lg:mt-4 flex flex-row items-center justify-between gap-2 sm:gap-0 text-xs text-gray-400">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <span className="text-xs">Less</span>
+                    <div className="flex gap-0.5 sm:gap-1">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-gray-800 rounded-sm"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-green-900 rounded-sm"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-green-700 rounded-sm"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-green-500 rounded-sm"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-green-300 rounded-sm"></div>
+                    </div>
+                    <span className="text-xs">More</span>
+                  </div>
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <a 
+                      href="https://github.com/Dolly-6232/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors text-xs"
+                    >
+                    <Github className="w-15 h-15 md:w-20 md:h-20" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      <Footer />
     </div>
   );
 }

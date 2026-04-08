@@ -1,6 +1,7 @@
 'use client'
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -198,6 +199,7 @@ export default function Skills() {
           </motion.div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }

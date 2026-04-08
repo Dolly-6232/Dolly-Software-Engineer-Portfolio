@@ -1,6 +1,7 @@
 'use client'
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -26,7 +27,7 @@ export default function Hire() {
       <div className="relative z-10">
         <Header />
 
-        <main className="flex flex-col w-full max-w-7xl mx-auto py-10 px-6 md:px-16 items-center gap-4">
+        <main className="flex flex-col w-full max-w-7xl mx-auto py-10 px-6 md:px-16 items-center gap-4 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +149,7 @@ export default function Hire() {
                 <div className="flex justify-center flex-col items-center px-6">
                   <div className="flex items-center mb-4">
                     <span className="text-lg md:text-2xl mr-3">🤝</span>
-                    <h3 className={`text-lg md:text-2xl font-text-gray-300 mb-0 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                    <h3 className={`text-lg md:text-2xl font-semibold mb-0 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
                       }`}>Ready to Work Together!</h3>
                   </div>
                   <p className={`mb-6 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
@@ -181,12 +182,13 @@ export default function Hire() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-          // className="text-center"
+            className="text-center"
           >
             <Image src="/images/hire.png" alt="Profile" width={500} height={500} className="rounded-full" />
           </motion.div>
         </main>
       </div>
+      <Footer />
     </div >
   );
 }
