@@ -65,8 +65,8 @@ export default function ProjectsPage() {
       admin: 'https://provider.theveelsnetwork.com/',
       category: 'Web Development',
       status: 'Production',
-      image: '/images/veelsAdmin.png',
-      image2: '/images/veelsAdmin2.png',
+      image: '/images/veelsadminNew.png',
+      image2: '/images/veelsAdminnew2.png',
 
       features: [
         'Comprehensive user management and analytics',
