@@ -5,6 +5,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { useTheme } from "@/contexts/ThemeContext"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function ProjectsPage() {
 
@@ -257,9 +258,11 @@ export default function ProjectsPage() {
 
                   {/* Project Image */}
                   <div className="w-full h-80 sm:h-80 overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={800}
+                      height={320}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
