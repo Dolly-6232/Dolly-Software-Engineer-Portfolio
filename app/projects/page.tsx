@@ -123,7 +123,33 @@ export default function ProjectsPage() {
         'Responsive design for all devices',
         'No server-side processing - client-side generation'
       ]
-    }
+    },
+
+     {
+  title: 'Recipe Book - Culinary Collection Platform',
+  description:
+    'A full-stack recipe management application that allows users to discover, create, and organize their favorite recipes with image uploads, favorites system, and user authentication.',
+  tech: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'Redux Toolkit', 'Tailwind CSS'],
+  demo: 'https://recipe-book-frontend-tau.vercel.app/signup',
+  category: 'Full Stack Web Application',
+  status: 'Live',
+  image: '/images/recipe_web.png',
+  image2: '/images/recipe_mobile.png',
+  features: [
+    'User authentication with signup and login functionality',
+    'Recipe creation with image upload support via Cloudinary',
+    'Recipe browsing with responsive grid layout',
+    'Favorites system to save and manage favorite recipes',
+    'User profile management with profile image customization',
+    'Recipe detail view with ingredients and instructions',
+    'JWT-based authentication for secure API access',
+    'Responsive design optimized for mobile and desktop',
+    'Real-time image preview during recipe creation',
+    'MongoDB database for efficient data storage',
+    'RESTful API architecture with Express.js',
+    'State management with Redux Toolkit'
+  ]
+}
   ]
 
   const getStatusColor = (status: string) => {

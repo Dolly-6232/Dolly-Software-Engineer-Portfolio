@@ -21,7 +21,7 @@ export default function Contact() {
     const formData = new FormData(form);
 
     // Add Web3Forms access key
-    formData.append("access_key", "f545d474-310d-476b-b93f-451f39cd1279");
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "");
 
     // Add email recipient
     formData.append("subject", "Contact from Portfolio Website");
